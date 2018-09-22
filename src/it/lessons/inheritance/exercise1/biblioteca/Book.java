@@ -11,7 +11,7 @@ package it.lessons.inheritance.exercise1.biblioteca;
  */
 public abstract class Book {
     
-    //prova;
+    
 
     private String title;
     private Author author;
