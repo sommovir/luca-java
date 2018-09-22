@@ -10,6 +10,8 @@ package it.lessons.inheritance.exercise1.biblioteca;
  * @author Luca Coraci <luca.coraci@istc.cnr.it>
  */
 public abstract class Book {
+    
+    //prova;
 
     private String title;
     private Author author;
