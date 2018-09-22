@@ -1,0 +1,26 @@
+
+ctrl + shift + i = Fix degli import
+
+alt + shit + F = Fix indentazione
+
+ctrl + shift + 1 = Data una classe selezionata viene evidenziato il file corrispettivo nel progetto relativo
+
+alt + invio = Suggeritore automatico per la risoluzione di errori comuni;
+
+ctrl + spazio = suggeritore
+
+alt + ins = Apre il menu per la generazione di codice
+
+ctrl + o = serve a cercare una classe nel progetto
+
+_______________________________________________________________________________________________________________
+
+Shortcuts per la generazione di codice:
+
+sout + tab = system out println
+
+for + tab = genera un ciclo for
+
+fore + tab = genera un foreach
+
+
