@@ -33,4 +33,10 @@ public class Essay extends Book {
         return "SETTORE 01";
     }
 
+    @Override
+    public String getTitle() {
+        return "ESSAY: "+super.getTitle(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
