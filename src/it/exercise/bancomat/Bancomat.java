@@ -25,6 +25,7 @@ public class Bancomat extends javax.swing.JFrame {
      */
     public Bancomat() {
         initComponents();
+        this.jList1.setModel(new DefaultListModel<String>());
         jPanel_movimenti.setVisible(false);
     }
 
@@ -260,15 +261,19 @@ public class Bancomat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String cardID = this.jTextField_cardID.getText();
-        String pin = new String(this.jPasswordField_PIN.getPassword());
-
-        System.out.println("PIN = " + pin);
-        Account a = this.bancomatManager.login(Integer.parseInt(cardID), Integer.parseInt(pin));
-
-        if (a != null) {
-            jPanel_movimenti.setVisible(true);
-            this.connectedAccount = a;
+        try {
+            String cardID = this.jTextField_cardID.getText();
+            String pin = new String(this.jPasswordField_PIN.getPassword());
+            
+            System.out.println("PIN = " + pin);
+            Account a = this.bancomatManager.login(Integer.parseInt(cardID), Integer.parseInt(pin));
+            
+            if (a != null) {
+                jPanel_movimenti.setVisible(true);
+                this.connectedAccount = a;
+            }
+        } catch (Exception ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -299,7 +304,7 @@ public class Bancomat extends javax.swing.JFrame {
             try {
                 this.bancomatManager.takeMoney(connectedAccount, somma);
             } catch (Exception ex) {
-                Logger.getLogger(Bancomat.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(Bancomat.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
             }
         }else{
@@ -309,10 +314,11 @@ public class Bancomat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.jList1.removeAll();
+         ((DefaultListModel<String>)(this.jList1.getModel())).clear();
         List<AbstractBankOperation> bankOperations = this.connectedAccount.getBankOperations();
         for (AbstractBankOperation bankOperation : bankOperations) {
-            ((DefaultListModel<String>)this.jList1.getModel()).addElement(bankOperation.description());
+            System.out.println("CLAZZ = "+this.jList1.getModel().getClass().getCanonicalName());
+            ((DefaultListModel<String>)(this.jList1.getModel())).addElement(bankOperation.description());
         }
         
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -328,6 +334,7 @@ public class Bancomat extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                System.out.println(info.getName());
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;

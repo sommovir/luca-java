@@ -72,6 +72,8 @@ public class ListeMain {
        cage.print();
         System.out.println("Nella gabbia ci sono "+ cage.sizeOfCage() + " animali.");
         
+        System.out.println(cage.removeByName("Molly"));
+        
     }
 
 }

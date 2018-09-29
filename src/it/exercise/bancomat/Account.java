@@ -45,10 +45,11 @@ public abstract class Account {
     public int getSaldo() {
         return saldo;
     }
-
+// setSaldo deve esserci?
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+  
 
 
     public abstract List<AbstractBankOperation> getBankOperations();

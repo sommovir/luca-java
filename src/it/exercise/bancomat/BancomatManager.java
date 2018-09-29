@@ -22,7 +22,7 @@ public abstract class BancomatManager {
      * @param pin
      * @return 
      */
-    public abstract Account login(int cardID, int pin);
+    public abstract Account login(int cardID, int pin) throws Exception;
     
     public abstract int getSaldo(Account account);
     
