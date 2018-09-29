@@ -279,7 +279,7 @@ public class Bancomat extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(this.connectedAccount != null){
-            this.jLabel_Saldo.setText(""+this.connectedAccount.getSaldo());
+            this.jLabel_Saldo.setText(""+this.bancomatManager.getSaldo(connectedAccount));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
