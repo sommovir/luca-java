@@ -28,7 +28,7 @@ public abstract class BancomatManager {
     
     public abstract void takeMoney(Account account, int money) throws Exception;
     
-    public abstract void pushMoney(Account account, int money);
+    public abstract void pushMoney(Account account, int money) throws Exception;
     
     public abstract void exit(Account account);
     

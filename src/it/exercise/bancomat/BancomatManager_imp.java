@@ -5,6 +5,7 @@
  */
 package it.exercise.bancomat;
 
+import it.exercise.bancomat.exceptions.NegativeNumberException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,6 +52,9 @@ public class BancomatManager_imp extends BancomatManager {
     
     @Override
     public void takeMoney(Account account, int money) throws Exception {
+        if(money < 0){
+            throw new NegativeNumberException();
+        }
         if (account instanceof BankAccount) {
             ((BankAccount) account).takeSaldo(money);
             
@@ -58,7 +62,10 @@ public class BancomatManager_imp extends BancomatManager {
     }
     
     @Override
-    public void pushMoney(Account account, int money) {
+    public void pushMoney(Account account, int money) throws Exception {
+        if(money < 0){
+            throw new NegativeNumberException();
+        }
         if (account instanceof BankAccount) {
             ((BankAccount) account).addSaldo(money);
             
