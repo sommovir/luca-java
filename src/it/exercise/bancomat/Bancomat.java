@@ -309,7 +309,11 @@ public class Bancomat extends javax.swing.JFrame {
             }
         }else{
             int somma = Integer.parseInt(this.jTextField_depo.getText());
-             this.bancomatManager.pushMoney(connectedAccount, somma);
+            try {
+                this.bancomatManager.pushMoney(connectedAccount, somma);
+            } catch (Exception ex) {
+                Logger.getLogger(Bancomat.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
