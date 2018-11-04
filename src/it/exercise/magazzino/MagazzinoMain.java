@@ -54,7 +54,16 @@ public class MagazzinoMain {
             System.out.println("Posti rimanenti in magazzino: " + Magazzino.getInstance().postiMancanti());
             System.out.println("Valore totale dei prodotti in magazzino : " + Magazzino.getInstance().getTotalPrice());
             System.out.println("Numero dei prodotti in magazzino : " + Magazzino.getInstance().getNumberOfItems());
-
+            boolean trovato = Magazzino.getInstance().findProductByName("legod castle");
+            Merce mostExpensive = Magazzino.getInstance().findMostExpensive();
+            if(trovato){
+                System.out.println("si esiste");
+            }else{
+                System.out.println("non esiste");
+            }
+            
+            
+            System.out.println("La merce più costosa è : " + mostExpensive.getName() + " e costa: " + mostExpensive.getPrice());
         } catch (Exception ex) {
             //ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage());
